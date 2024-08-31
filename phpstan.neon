@@ -1,0 +1,24 @@
+parameters:
+        boundedContext:
+            modulesPath: modules
+            commonModules:
+                - shared
+parametersSchema:
+	boundedContext: structure([
+		modulesPath: string()
+		commonModules: array()
+	])
+
+services:
+    -
+        class: Solution\PhpStanBoundedContext\BoundedContextChecker
+        arguments:
+            baseFolder: %boundedContext.modulesPath%
+            excludedFolders: %boundedContext.commonModules%
+
+    -
+        class: Solution\PhpStanBoundedContext\BoundedContextRule
+        arguments:
+            checker: @Solution\PhpStanBoundedContext\BoundedContextChecker
+        tags:
+            - phpstan.rules.rule

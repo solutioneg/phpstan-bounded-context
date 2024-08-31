@@ -1,0 +1,21 @@
+{
+    "name": "solutioneg/phpstan-bounded-context",
+    "description": "PHPStan plugin for enforcing bounded context rules",
+    "version": "1.0.0",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Solution\\PhpStanBoundedContext\\": "src/"
+        }
+    },
+    "require": {
+        "phpstan/phpstan": "^1.0"
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "phpstan.neon"
+            ]
+        }
+    }
+}
